@@ -1,2 +1,1 @@
-# terraform-google-secrets-manager
-Terraform module for managing GCP secrets manager
+A very simple GCP Terraform Secrets Manager module
