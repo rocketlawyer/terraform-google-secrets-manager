@@ -1,5 +1,4 @@
 resource "google_secret_manager_secret" "secret" {
-  provider  = google-beta
   secret_id = var.secret_name
   replication {
     automatic = var.replication
@@ -21,7 +20,6 @@ resource "random_password" "password" {
 }
 
 resource "google_secret_manager_secret_iam_member" "gsa_accessor" {
-  provider  = google-beta
   count     = length(var.gsa_list)
   secret_id = google_secret_manager_secret.secret.id
   role      = "roles/secretmanager.secretAccessor"
@@ -35,7 +33,6 @@ resource "google_secret_manager_secret_iam_member" "gsa_accessor" {
 }
 
 resource "google_secret_manager_secret_iam_member" "group_accessor" {
-  provider  = google-beta
   count     = length(var.group_list)
   secret_id = google_secret_manager_secret.secret.id
   role      = "roles/secretmanager.secretAccessor"
