@@ -7,7 +7,6 @@ resource "google_secret_manager_secret" "secret" {
 }
 
 resource "google_secret_manager_secret_version" "secret-version" {
-  provider    = google-beta
   secret      = google_secret_manager_secret.secret.id
   secret_data = var.generate_random_password ? random_password.password[1].result : var.secret_data
 }
