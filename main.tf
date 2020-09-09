@@ -1,8 +1,14 @@
+locals {
+  label_map = merge({ "created_by" = "terraform" }, var.labels)
+}
+
 resource "google_secret_manager_secret" "secret" {
   secret_id = var.secret_name
   replication {
     automatic = var.replication
   }
+
+  labels  = local.label_map
   project = var.gcp_project
 }
 

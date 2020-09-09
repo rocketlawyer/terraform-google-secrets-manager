@@ -24,3 +24,9 @@ variable "group_list" {
   type        = list
   default     = []
 }
+
+variable "labels" {
+  description = "Map of labels - {\"mykey\"=\"myvalue\"}"
+  type        = map
+  default     = {}
+}
